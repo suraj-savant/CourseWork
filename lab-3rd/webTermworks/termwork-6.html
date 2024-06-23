@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  alert("Welcome "+x)
+}
+</script>
+</head>
+<body>
+
+<h2>JavaScript Validation</h2>
+
+<form name="myForm" onsubmit="validateForm()" method="get">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit" >
+</form>
+</body>
+</html>
+
