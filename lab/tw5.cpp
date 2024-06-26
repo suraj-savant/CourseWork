@@ -2,12 +2,9 @@
 
 // Write a C/C++ program that creates a zombie and then calls system to execute the ps 
 // command to Verify that the process is zombie
-
-
-#include<unistd.h>
-#include<stdio.h>
+#include<iostream>
 #include<stdlib.h>
-#include <sys/types.h>
+#include<unistd.h>
 #include <sys/wait.h>
 int main(){
     pid_t pid;

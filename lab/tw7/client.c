@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <strings.h>
-#include <string.h>
 #include <sys/socket.h>
-#include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <stdio.h>
+#include <string.h>
+
+
 #define PORT 4444
 int main() {
  int sockfd;
@@ -20,8 +19,7 @@ int main() {
  servAddr.sin_port = htons(PORT);
  servAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
  
- connect(sockfd, (struct sockaddr *) &servAddr, 
-sizeof(servAddr));
+ connect(sockfd, (struct sockaddr *) &servAddr, sizeof(servAddr));
  printf("[+] Connected to server\n");
  
  recv(sockfd, buffer, 1024, 0);

@@ -4,11 +4,11 @@
 #include <iostream>
 #include <unistd.h>
 #include <sys/wait.h>
-
-void charatatime(const char *str) {
+using namespace std;
+void printchars(const char *str) {
     const char *ptr;
     int c;
-    std::cout.setf(std::ios::unitbuf);  // Set the output to be unbuffered
+    cout.setf(std::ios::unitbuf);  // Set the output to be unbuffered
     for (ptr = str; (c = *ptr++) != 0;) {
         putc(c, stdout);
     }
@@ -18,12 +18,12 @@ int main() {
     pid_t pid;
     for (int i = 0; i < 3; ++i) {
         if ((pid = fork()) < 0) {
-            std::cerr << "fork error." << std::endl;
+           perror("fork error");
         } else if (pid == 0) {
-            charatatime("output from child\n");
+            printchars("output from child\n");
             _exit(0);
         } else {
-            charatatime("output from parent\n");
+            printchars("output from parent\n");
         }
     }
 

@@ -6,43 +6,45 @@
 #include <limits.h>
 #include<bits/stdc++.h>
 
+using namespace std;
+
 int main() {
     int ch;
     long res;
 
-    std::cout << "Enter the choice (1 for runtime limits, 2 for compile-time limits): ";
-    std::cin >> ch;
+    cout << "Enter the choice (1 for runtime limits, 2 for compile-time limits): ";
+    cin >> ch;
 
     switch (ch) {
         case 1:
-            std::cout << "Runtime configuration limits:\n";
+            cout << "Runtime configuration limits:\n";
 
             res = sysconf(_SC_CLK_TCK);
-            std::cout << "Number of Clock Ticks: " << (res == -1 ? "System does not support" : std::to_string(res)) << std::endl;
+            cout << "Number of Clock Ticks: " << (res == -1 ? "System does not support" : to_string(res)) << endl;
 
             res = sysconf(_SC_CHILD_MAX);
-            std::cout << "Maximum Number of Child Processes: " << (res == -1 ? "System does not support" : std::to_string(res)) << std::endl;
+            cout << "Maximum Number of Child Processes: " << (res == -1 ? "System does not support" : to_string(res)) << endl;
 
             res = pathconf("/", _PC_PATH_MAX);
-            std::cout << "Maximum Path Length: " << (res == -1 ? "System does not support" : std::to_string(res)) << std::endl;
+            cout << "Maximum Path Length: " << (res == -1 ? "System does not support" : to_string(res)) << endl;
 
             res = pathconf("/", _PC_NAME_MAX);
-            std::cout << "Maximum Characters in Filename: " << (res == -1 ? "System does not support" : std::to_string(res)) << std::endl;
+            cout << "Maximum Characters in Filename: " << (res == -1 ? "System does not support" : to_string(res)) << endl;
 
             res = sysconf(_SC_OPEN_MAX);
-            std::cout << "Maximum Number of Open Files: " << (res == -1 ? "System does not support" : std::to_string(res)) << std::endl;
+            cout << "Maximum Number of Open Files: " << (res == -1 ? "System does not support" : to_string(res)) << endl;
             break;
 
         case 2:
-            std::cout << "Compile-time configuration limits:\n";
-            std::cout << "Maximum Child Processes: " << _POSIX_CHILD_MAX << std::endl;
-            std::cout << "Maximum Open Files: " << _POSIX_OPEN_MAX << std::endl;
-            std::cout << "Maximum Path Length: " << _POSIX_PATH_MAX << std::endl;
-            std::cout << "Maximum Filename Length: " << _POSIX_NAME_MAX << std::endl;
+            cout << "Compile-time configuration limits:\n";
+            cout << "Maximum Child Processes: " << _POSIX_CHILD_MAX << endl;
+            cout << "Maximum Open Files: " << _POSIX_OPEN_MAX << endl;
+            cout << "Maximum Path Length: " << _POSIX_PATH_MAX << endl;
+            cout << "Maximum Filename Length: " << _POSIX_NAME_MAX << endl;
             break;
 
         default:
-            std::cout << "Invalid choice\n";
+            cout << "Invalid choice\n";
     }
 
     return 0;
