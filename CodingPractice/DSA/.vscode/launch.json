@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Java_00",
+            "request": "launch",
+            "mainClass": "Foundation.Java_00",
+            "projectName": "DSA_d00f5a60"
+        },
+        {
+            "type": "java",
             "name": "P04ReverseVowels",
             "request": "launch",
             "mainClass": "P04ReverseVowels",
