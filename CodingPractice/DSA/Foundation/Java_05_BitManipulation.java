@@ -1,17 +1,79 @@
-package Foundation;
 
-public  class Java_05_BitManipulation {
-    public static void main(String[] args) {
-        int num = 10;
-// Convert int to Binary
-        String binary  = Integer.toBinaryString(num);
-        System.out.println("Num to binary " + binary);
+public class Java_05_BitManipulation {
 
-//  Convert Binary to Int
-        int numFromBinary = Integer.parseInt(binary, 2);
-        System.out.println("num from binary " + numFromBinary);
+    static int toInteger(String binary){
+        int integer = 0;
+        int end =  binary.length()-1;        
+        for (int i = end; i >= 0; i--) {
+            int radix = end -i;
+            int base =Integer.parseInt(binary.substring(i, i+1));
+            integer += Math.pow(base, radix);
+            
+        }
+
+        return integer;
     }
+
+    static String toBinary(int num){
+        String binary = "";
+        while(num != 0){
+            int digit = num % 2;
+            binary = digit + binary;
+            num /= 2;
+
+        }
+        return binary;
+    }
+    public static void main(String[] args) {
+       int i =  toInteger("1111");
+       System.out.println(i);
+        // System.out.println(toBinary(10));
+    }
+    
 }
+
+
+// public class Java_05_BitManipulation {
+
+//     static String intTOBinary(int num) {
+
+//         // Convert int to Binary
+//         String binary = Integer.toBinaryString(num);
+//         return binary;
+//     }
+
+//     static int binaryToInt(String binary) {
+
+//         //  Convert Binary to Int
+//         int num = Integer.parseInt(binary, 2);
+//         return  num;
+
+//     }
+
+//     static int countBits(int num) {
+
+//         int count = 0;
+//         while (num != 0) {
+//             count += num & 1;
+//             num = num >> 1;
+//         }
+//         return count;
+//     }
+
+//     static int complement(int num) {
+//         int maskLength = Integer.toBinaryString(num).length();
+//         int mask = (1 << maskLength) - 1;
+//         int complement = num ^ mask;
+//         return  complement;
+//     }
+
+//     public static void main(String[] args) {
+//         System.out.println("Int to Binary of 10 : " + intTOBinary(10));
+//         System.out.println("Binary to Int of 1011 : " + binaryToInt("1011"));
+//         System.out.println("Count bits in 10 : " + countBits(10));
+//         System.out.println("complement of 10 : " + complement(10));
+//     }
+// }
 
 
 //

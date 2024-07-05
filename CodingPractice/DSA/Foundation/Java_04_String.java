@@ -1,4 +1,3 @@
-package Foundation;
 
 class Java_04_String{
 
